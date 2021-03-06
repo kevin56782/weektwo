@@ -1,1 +1,62 @@
+#第一題
 
+function calulate(min,max){
+  let sum = 0;
+  for(let i = min;i<=max;i++){
+    sum += i 
+  }
+  console.log(sum)
+}
+
+#第二題
+ 
+function avg(data){
+  let sum = 0
+  data.employees.forEach(e => {
+    sum += e.salary
+  });
+  return console.log(sum/data.count)
+}
+  avg({
+    "count":3,
+    "employees":[{
+      "name":"John",
+      "salary":30000 
+      },
+      {
+        "name":"Bob",
+        "salary":60000 
+      },
+      {
+        "name":"Jenny",
+        "salary":50000 
+      }]
+  })
+
+
+#第三題
+ 
+function maxProduct(nums){
+  nums.sort((a,b) => a -b);
+  const max = nums[nums.length-1];
+  const secMax = nums[nums.length-2];
+  const maxNum = secMax * max;
+  return console.log(maxNum);
+}
+  maxProduct([5, 20, 2, 6]);   // 得到 120 因為 20 和 6 相乘得到最大值
+  maxProduct([10, -20, 0, 3]); // 得到 30 因為 10 和 3 相乘得到最大值
+
+#第四題
+
+function twoSum(nums, target){
+  let map = {};
+  for(let i = 0 ; i < nums.length ; i++){
+      let v = nums[i];
+      if(map[target-v] >= 0){  
+        return console.log([map[target-v],i])
+      } else {
+          map[v] = i;
+      }
+  }
+}
+twoSum([2, 11, 7, 15], 9)
