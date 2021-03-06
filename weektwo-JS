@@ -1,107 +1,62 @@
-# Pythondef calculate(min, max):
-# 請用你的程式補完這個函式的區塊
-# calculate(1, 3)​
-# 你的程式要能夠計算 1+2+3，最後印出6
-# calculate(4, 8)​
-# 你的程式要能夠計算 4+5+6+7+8，最後印出 30
+#第一題
 
-# Pythondef calculate(min, max):
-#calculate(1, 3)
-#calculate(4, 8)
+function calulate(min,max){
+  let sum = 0;
+  for(let i = min;i<=max;i++){
+    sum += i 
+  }
+  console.log(sum)
+}
 
-# 第一圖
-
-def calculate(min, max):
-    sum = 0
-    for i in range(min, max+1):
-        sum += i
-    return print(sum)
-
-
-calculate(1, 3)
-calculate(4, 8)
-
-# def avg(data):  # 請用你的程式補完這個函式的區塊
-#     avg({
-#         "count": 3,
-#         "employees": [
-#             {
-#                 "name": "John",
-#                 "salary": 30000
-#             },
-#             {
-#                 "name": "Bob",
-#                 "salary": 60000
-#             },
-#             {
-#                 "name": "Jenny",
-#                 "salary": 50000
-#             }
-#         ]
-#     })​  # 呼叫 avg 函式
-
-# 第二題
+#第二題
+ 
+function avg(data){
+  let sum = 0
+  data.employees.forEach(e => {
+    sum += e.salary
+  });
+  return console.log(sum/data.count)
+}
+  avg({
+    "count":3,
+    "employees":[{
+      "name":"John",
+      "salary":30000 
+      },
+      {
+        "name":"Bob",
+        "salary":60000 
+      },
+      {
+        "name":"Jenny",
+        "salary":50000 
+      }]
+  })
 
 
-def avg(data):
-    total = 0
-    for employee in data["employee"]:
-        total += employee["salary"]
-    avg = total / data["count"]
+#第三題
+ 
+function maxProduct(nums){
+  nums.sort((a,b) => a -b);
+  const max = nums[nums.length-1];
+  const secMax = nums[nums.length-2];
+  const maxNum = secMax * max;
+  return console.log(maxNum);
+}
+  maxProduct([5, 20, 2, 6]);   // 得到 120 因為 20 和 6 相乘得到最大值
+  maxProduct([10, -20, 0, 3]); // 得到 30 因為 10 和 3 相乘得到最大值
 
-    return print(avg)
+#第四題
 
-
-data = {"count": 3,
-        "employee": [
-            {
-                "name": "John",
-                "salary": 30000
-            },
-            {
-                "name": "Bob",
-                "salary": 60000
-            },
-            {
-                "name": "Jenny",
-                "salary": 50000}
-        ]
-        }
-
-avg(data)
-
-# 請用你的程式補完這個函式的區塊maxProduct([5, 20, 2, 6])​
-# # 得到 120 因為 20 和 6 相乘得到最大值maxProduct([10, -20, 0, 3])​
-# # 得到 30 因為 10 和 3 相乘得到最大值
-# 第三題
-
-
-def maxProduct(nums):
-    tmp = []
-    for n in nums:
-        for k in nums[nums.index(n) + 1:]:
-            tmp.append(n * k)
-    return max(tmp)
-
-
-r1 = maxProduct([5, 20, 2, 6])
-r2 = maxProduct([10, -20, 0, 3])
-print(r1)
-print(r2)
-
-
-# def twoSum(nums, target):
-# your code hereresult=twoSum([2, 11, 7, 15], 9)print(result)
-# ​# show [0, 2] because nums[0]+nums[2] is 9
-
-# 第四題
-
-def twoSum(nums, target):
-    i = 0
-    for n in nums:
-        if target - n in nums[i+1:]:
-            return print(i, nums.index(target - n))
-        i += 1
-
-
-twoSum([2, 11, 7, 15], 18)
+function twoSum(nums, target){
+  let map = {};
+  for(let i = 0 ; i < nums.length ; i++){
+      let v = nums[i];
+      if(map[target-v] >= 0){  
+        return console.log([map[target-v],i])
+      } else {
+          map[v] = i;
+      }
+  }
+}
+twoSum([2, 11, 7, 15], 9)
