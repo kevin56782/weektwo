@@ -36,12 +36,17 @@ function avg(data){
 
 #第三題
  
-function maxProduct(nums){
-  nums.sort((a,b) => a -b);
-  const max = nums[nums.length-1];
-  const secMax = nums[nums.length-2];
-  const maxNum = secMax * max;
-  return console.log(maxNum);
+function maxProduct(array) {
+  let maxNum = 0;
+  for (let i = 0; i < array.length; i++) 
+    {
+      const result = array[i] * array[i + 1];
+      if (result > maxNum) 
+      {
+       maxNum = result
+      }
+    }
+    return maxNum;
 }
   maxProduct([5, 20, 2, 6]);   // 得到 120 因為 20 和 6 相乘得到最大值
   maxProduct([10, -20, 0, 3]); // 得到 30 因為 10 和 3 相乘得到最大值
